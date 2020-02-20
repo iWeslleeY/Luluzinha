@@ -326,38 +326,69 @@
                <children>
                   <VBox layoutX="11.0" layoutY="14.0" prefHeight="252.0" prefWidth="241.0">
                      <children>
-                        <Label text="Demanda:" />
-                        <TextField />
-                        <Label text="Responsavel:" />
-                        <TextField />
-                        <Label text="Local:" />
-                        <TextField />
-                        <Label text="Centro de Custo" />
-                        <TextField />
-                        <Label text="Local:" />
-                        <TextField />
+                        <Label text="Demanda:">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font></Label>
+                        <TextField fx:id="txtDemanda" />
+                        <Label text="Responsavel:">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font></Label>
+                        <TextField fx:id="txtResponsavel" />
+                        <Label text="Local:">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font></Label>
+                        <TextField fx:id="txtLocal" />
+                        <Label text="Centro de Custo">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font></Label>
+                        <TextField fx:id="txtCentroCusto" />
+                        <Label text="Gerente">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font></Label>
+                        <TextField fx:id="txtGerente" />
                      </children>
                   </VBox>
-                  <Label layoutX="347.0" layoutY="25.0" text="Inicio" />
-                  <JFXDatePicker layoutX="377.0" layoutY="21.0" prefHeight="25.0" prefWidth="105.0" />
-                  <Label layoutX="477.0" layoutY="25.0" text="Termino" />
-                  <JFXDatePicker layoutX="521.0" layoutY="21.0" prefHeight="25.0" prefWidth="101.0" />
-                  <Label layoutX="345.0" layoutY="60.0" text="Horário:" />
-                  <JFXTimePicker layoutX="392.0" layoutY="56.0" prefHeight="25.0" prefWidth="77.0" />
-                  <Label layoutX="473.0" layoutY="60.0" text="Até" />
-                  <JFXTimePicker layoutX="496.0" layoutY="56.0" prefHeight="25.0" prefWidth="77.0" />
+                  <Label layoutX="347.0" layoutY="25.0" text="Inicio">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font></Label>
+                  <JFXDatePicker fx:id="dtInicio" layoutX="377.0" layoutY="21.0" prefHeight="25.0" prefWidth="105.0" />
+                  <Label layoutX="477.0" layoutY="25.0" text="Termino">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font></Label>
+                  <JFXDatePicker fx:id="dtTermino" layoutX="521.0" layoutY="21.0" prefHeight="25.0" prefWidth="101.0" />
+                  <Label layoutX="345.0" layoutY="60.0" text="Horário:">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font></Label>
+                  <JFXTimePicker fx:id="hrInicio" layoutX="392.0" layoutY="56.0" prefHeight="25.0" prefWidth="77.0" />
+                  <Label layoutX="473.0" layoutY="60.0" text="Até">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font></Label>
+                  <JFXTimePicker fx:id="hrFinal" layoutX="496.0" layoutY="56.0" prefHeight="25.0" prefWidth="77.0" />
                   <VBox layoutX="344.0" layoutY="93.0">
                      <children>
-                        <Label text="Numero de vagas:" />
-                        <TextField prefHeight="25.0" prefWidth="81.0" />
-                        <Label text="Coordenador:" />
-                        <TextField />
-                        <Label text="Gerente" />
-                        <TextField />
+                        <Label text="Numero de vagas:">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font></Label>
+                        <TextField fx:id="txtNumVagas" prefHeight="25.0" prefWidth="81.0" />
+                        <Label text="Coordenador:">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font></Label>
+                        <TextField fx:id="txtCoordenador" />
                      </children>
                   </VBox>
-                  <TextArea layoutX="340.0" layoutY="235.0" prefHeight="108.0" prefWidth="188.0" text="Observação..." />
-                  <Button layoutX="456.0" layoutY="367.0" mnemonicParsing="false" style="-fx-background-color: #007bff;" text="Limpar">
+                  <TextArea fx:id="txtObservacao" layoutX="340.0" layoutY="235.0" prefHeight="108.0" prefWidth="188.0" promptText="Observação..." />
+                  <Button layoutX="456.0" layoutY="367.0" mnemonicParsing="false" onAction="#limparDemandas" style="-fx-background-color: #007bff;" text="Limpar">
                      <font>
                         <Font name="Arial Bold" size="12.0" />
                      </font>
@@ -367,7 +398,7 @@
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Button>
-                  <TextArea layoutX="11.0" layoutY="231.0" prefHeight="111.0" prefWidth="241.0" text="Participantes..." />
+                  <TextArea layoutX="11.0" layoutY="257.0" prefHeight="111.0" prefWidth="241.0" promptText="Participantes..." />
                </children>
             </AnchorPane>
             <AnchorPane fx:id="apInicio" layoutX="4.0" layoutY="52.0" prefHeight="450.0" prefWidth="630.0" visible="false" />

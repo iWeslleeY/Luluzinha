@@ -17,6 +17,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
@@ -27,7 +28,43 @@ import javafx.scene.layout.AnchorPane;
  * @author Wesley Araujo
  */
 public class InicioPaginaController implements Initializable {
+   
+    @FXML
+    private JFXDatePicker dtInicio;
+
+    @FXML
+    private JFXDatePicker dtTermino;
+
+    @FXML
+    private JFXTimePicker hrInicio;
+
+    @FXML
+    private JFXTimePicker hrFinal;
+
+    @FXML
+    private TextField txtNumVagas;
+
+    @FXML
+    private TextField txtCoordenador;
+
+    @FXML
+    private TextArea txtObservacao;
     
+    @FXML
+    private TextField txtDemanda;
+
+    @FXML
+    private TextField txtResponsavel;
+
+    @FXML
+    private TextField txtLocal;
+
+    @FXML
+    private TextField txtCentroCusto;
+
+    @FXML
+    private TextField txtGerente;
+
     @FXML
     private ComboBox<String> cbResponsavel;
     
@@ -138,7 +175,7 @@ public class InicioPaginaController implements Initializable {
             apAgenda.setVisible(false);
             apSobre.setVisible(false);
     }
-    
+      
     @FXML
     void limparAnotacoes(MouseEvent event) {
         txtAnotacoes.clear();
@@ -146,6 +183,22 @@ public class InicioPaginaController implements Initializable {
         dtDataAnotacoes.setValue(null);
         tmHoraAnotacoes.setValue(null);
         cbResponsavel.setValue(null);
+    }
+    
+    @FXML
+    void limparDemandas(ActionEvent event) {
+        txtDemanda.clear();
+        txtLocal.clear();
+        txtCentroCusto.clear();
+        txtGerente.clear();
+        txtNumVagas.clear();
+        txtCoordenador.clear();
+        dtInicio.setValue(null);
+        dtTermino.setValue(null);
+        hrInicio.setValue(null);
+        hrFinal.setValue(null);
+        txtObservacao.clear();
+        txtResponsavel.clear();
     }
     
     @FXML
