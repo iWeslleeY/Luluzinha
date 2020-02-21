@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXTimePicker?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane prefHeight="438.0" prefWidth="613.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="luluzinha.InicioPaginaController">
+   <left>
+      <AnchorPane prefHeight="400.0" prefWidth="200.0" style="-fx-background-color: #007bff;" BorderPane.alignment="CENTER">
+         <children>
+            <Circle fill="WHITE" layoutX="100.0" layoutY="180.0" radius="100.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+            <ImageView fitHeight="144.0" fitWidth="151.0" layoutX="41.0" layoutY="108.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Imagens/download.png" />
+               </image>
+            </ImageView>
+            <JFXButton fx:id="btnHome" layoutX="30.0" layoutY="97.0" onMousePressed="#retornarHome" prefHeight="167.0" prefWidth="132.0" text="    " />
+         </children>
+      </AnchorPane>
+   </left>
+   <center>
+      <AnchorPane prefHeight="432.0" prefWidth="555.0" style="-fx-background-color: #ffffff;" BorderPane.alignment="BOTTOM_CENTER">
+         <children>
+            <AnchorPane fx:id="apAgenda" layoutX="1.0" layoutY="52.0" onMousePressed="#handleButtonAction" prefHeight="453.0" prefWidth="634.0" visible="false">
+               <children>
+                  <ImageView fitHeight="444.0" fitWidth="629.0" layoutY="9.0" opacity="0.41" pickOnBounds="true">
+                     <image>
+                        <Image url="@Imagens/Tema7.jpg" />
+                     </image>
+                  </ImageView>
+                  <JFXDatePicker fx:id="Calendario" defaultColor="#007bff" layoutX="14.0" layoutY="22.0" onAction="#showDate" prefHeight="38.0" prefWidth="99.0" showWeekNumbers="true" />
+                  <Label fx:id="clAno" layoutX="142.0" layoutY="35.0" text="ANO" visible="false" />
+                  <Label fx:id="clDiaSemana" layoutX="214.0" layoutY="20.0" text="DiaSemana" visible="false">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="clDia" layoutX="213.0" layoutY="33.0" text="DIA" visible="false">
+                     <font>
+                        <Font name="Arial" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="clMes" layoutX="214.0" layoutY="53.0" text="Mês" visible="false">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="clAno1" layoutX="426.0" layoutY="33.0" text="ANO" visible="false" />
+                  <Label fx:id="clDiaSemana1" layoutX="498.0" layoutY="18.0" text="DiaSemana" visible="false">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="clDia1" layoutX="497.0" layoutY="31.0" text="DIA" visible="false">
+                     <font>
+                        <Font name="Arial" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="clMes1" layoutX="498.0" layoutY="51.0" text="Mês" visible="false">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="14.0" layoutY="90.0" text="07:30">
+                     <font>
+                        <Font name="Arial Black" size="11.0" />
+                     </font>
+                  </Label>
+                  <Separator layoutX="13.0" layoutY="106.0" prefHeight="0.0" prefWidth="272.0" />
+                  <TextField layoutX="52.0" layoutY="79.0" prefHeight="24.0" prefWidth="231.0" />
+                  <Label layoutX="15.0" layoutY="122.0" text="08:00">
+                     <font>
+                        <Font name="Arial Black" size="11.0" />
+                     </font>
+                  </Label>
+                  <Separator layoutX="14.0" layoutY="138.0" prefHeight="0.0" prefWidth="272.0" />
+                  <TextField layoutX="53.0" layoutY="111.0" prefHeight="24.0" prefWidth="231.0" />
+                  <Label layoutX="15.0" layoutY="153.0" text="08:30">
+                     <font>
+                        <Font name="Arial Black" size="11.0" />
+                     </font>
+                  </Label>
+                  <Separator layoutX="14.0" layoutY="169.0" prefHeight="0.0" prefWidth="272.0" />
+                  <TextField layoutX="53.0" layoutY="142.0" prefHeight="24.0" prefWidth="231.0" />
+                  <Label layoutX="15.0" layoutY="185.0" text="09:00">
+                     <font>
+                        <Font name="Arial Black" size="11.0" />
+                     </font>
+                  </Label>
+                  <Separator layoutX="14.0" layoutY="201.0" prefHeight="0.0" prefWidth="272.0" />
+                  <TextField layoutX="53.0" layoutY="174.0" prefHeight="24.0" prefWidth="231.0" />
+                  <Label layoutX="15.0" layoutY="215.0" text="09:30">
+                     <font>
+                        <Font name="Arial Black" size="11.0" />
+                     </font>
+                  </Label>
+                  <Separator layoutX="14.0" layoutY="231.0" prefHeight="0.0" prefWidth="272.0" />
+                  <TextField layoutX="53.0" layoutY="204.0" prefHeight="24.0" prefWidth="231.0" />
+                  <Label layoutX="15.0" layoutY="245.0" text="10:00">
+                     <font>
+                        <Font name="Arial Black" size="11.0" />
+                     </font>
+                  </Label>
+                  <Separator layoutX="14.0" layoutY="261.0" prefHeight="0.0" prefWidth="272.0" />
+                  <TextField layoutX="53.0" layoutY="234.0" prefHeight="24.0" prefWidth="231.0" />
+                  <Label layoutX="15.0" layoutY="275.0" text="10:30">
+                     <font>
+                        <Font name="Arial Black" size="11.0" />
+                     </font>
+                  </Label>
+                  <Separator layoutX="14.0" layoutY="291.0" prefHeight="0.0" prefWidth="272.0" />
+                  <TextField layoutX="53.0" layoutY="264.0" prefHeight="24.0" prefWidth="231.0" />
+                  <Label layoutX="15.0" layoutY="304.0" text="11:00">
+                     <font>
+                        <Font name="Arial Black" size="11.0" />
+                     </font>
+                  </Label>
+                  <Separator layoutX="14.0" layoutY="320.0" prefHeight="0.0" prefWidth="272.0" />
+                  <TextField layoutX="53.0" layoutY="293.0" prefHeight="24.0" prefWidth="231.0" />
+                  <Label layoutX="15.0" layoutY="333.0" text="11:30">
+                     <font>
+                        <Font name="Arial Black" size="11.0" />
+                     </font>
+                  </Label>
+                  <Separator layoutX="14.0" layoutY="349.0" prefHeight="0.0" prefWidth="272.0" />
+                  <TextField layoutX="53.0" layoutY="322.0" prefHeight="24.0" prefWidth="231.0" />
+                  <Label layoutX="14.0" layoutY="363.0" text="12:00">
+                     <font>
+                        <Font name="Arial Black" size="11.0" />
+                     </font>
+                  </Label>
+                  <Separator layoutX="13.0" layoutY="379.0" prefHeight="0.0" prefWidth="272.0" />
+                  <TextField layoutX="52.0" layoutY="352.0" prefHeight="24.0" prefWidth="231.0" />
+                  <Label layoutX="14.0" layoutY="393.0" text="12:30">
+                     <font>
+                        <Font name="Arial Black" size="11.0" />
+                     </font>
+                  </Label>
+                  <Separator layoutX="13.0" layoutY="409.0" prefHeight="0.0" prefWidth="272.0" />
+                  <TextField layoutX="52.0" layoutY="382.0" prefHeight="24.0" prefWidth="231.0" />
+                  <Label layoutX="339.0" layoutY="81.0" text="13:00">
+                     <font>
+                        <Font name="Arial Black" size="11.0" />
+                     </font>
+                  </Label>
+                  <Separator layoutX="338.0" layoutY="97.0" prefHeight="0.0" prefWidth="272.0" />
+                  <TextField layoutX="377.0" layoutY="70.0" prefHeight="24.0" prefWidth="231.0" />
+                  <Label layoutX="338.0" layoutY="172.0" text="14:30">
+                     <font>
+                        <Font name="Arial Black" size="11.0" />
+                     </font>
+                  </Label>
+                  <Separator layoutX="337.0" layoutY="188.0" prefHeight="0.0" prefWidth="272.0" />
+                  <TextField layoutX="376.0" layoutY="161.0" prefHeight="24.0" prefWidth="231.0" />
+                  <Label layoutX="339.0" layoutY="111.0" text="13:30">
+                     <font>
+                        <Font name="Arial Black" size="11.0" />
+                     </font>
+                  </Label>
+                  <Separator layoutX="338.0" layoutY="127.0" prefHeight="0.0" prefWidth="272.0" />
+                  <TextField layoutX="377.0" layoutY="100.0" prefHeight="24.0" prefWidth="231.0" />
+                  <Label layoutX="339.0" layoutY="141.0" text="14:00">
+                     <font>
+                        <Font name="Arial Black" size="11.0" />
+                     </font>
+                  </Label>
+                  <Separator layoutX="338.0" layoutY="157.0" prefHeight="0.0" prefWidth="272.0" />
+                  <TextField layoutX="377.0" layoutY="130.0" prefHeight="24.0" prefWidth="231.0" />
+                  <Label layoutX="339.0" layoutY="202.0" text="15:00">
+                     <font>
+                        <Font name="Arial Black" size="11.0" />
+                     </font>
+                  </Label>
+                  <Separator layoutX="338.0" layoutY="218.0" prefHeight="0.0" prefWidth="272.0" />
+                  <TextField layoutX="377.0" layoutY="191.0" prefHeight="24.0" prefWidth="231.0" />
+                  <Label layoutX="339.0" layoutY="232.0" text="15:30">
+                     <font>
+                        <Font name="Arial Black" size="11.0" />
+                     </font>
+                  </Label>
+                  <Separator layoutX="338.0" layoutY="248.0" prefHeight="0.0" prefWidth="272.0" />
+                  <TextField layoutX="377.0" layoutY="221.0" prefHeight="24.0" prefWidth="231.0" />
+                  <Label layoutX="339.0" layoutY="262.0" text="16:00">
+                     <font>
+                        <Font name="Arial Black" size="11.0" />
+                     </font>
+                  </Label>
+                  <Separator layoutX="338.0" layoutY="278.0" prefHeight="0.0" prefWidth="272.0" />
+                  <TextField layoutX="377.0" layoutY="251.0" prefHeight="24.0" prefWidth="231.0" />
+                  <Label layoutX="339.0" layoutY="292.0" text="16:30">
+                     <font>
+                        <Font name="Arial Black" size="11.0" />
+                     </font>
+                  </Label>
+                  <Separator layoutX="338.0" layoutY="308.0" prefHeight="0.0" prefWidth="272.0" />
+                  <TextField layoutX="377.0" layoutY="281.0" prefHeight="24.0" prefWidth="231.0" />
+                  <Label layoutX="339.0" layoutY="322.0" text="17:00">
+                     <font>
+                        <Font name="Arial Black" size="11.0" />
+                     </font>
+                  </Label>
+                  <Separator layoutX="338.0" layoutY="338.0" prefHeight="0.0" prefWidth="272.0" />
+                  <TextField layoutX="377.0" layoutY="311.0" prefHeight="24.0" prefWidth="231.0" />
+                  <Label layoutX="339.0" layoutY="352.0" text="17:30">
+                     <font>
+                        <Font name="Arial Black" size="11.0" />
+                     </font>
+                  </Label>
+                  <Separator layoutX="338.0" layoutY="368.0" prefHeight="0.0" prefWidth="272.0" />
+                  <TextField layoutX="377.0" layoutY="341.0" prefHeight="24.0" prefWidth="231.0" />
+                  <Label layoutX="339.0" layoutY="382.0" text="18:00">
+                     <font>
+                        <Font name="Arial Black" size="11.0" />
+                     </font>
+                  </Label>
+                  <Separator layoutX="338.0" layoutY="398.0" prefHeight="0.0" prefWidth="272.0" />
+                  <TextField layoutX="377.0" layoutY="371.0" prefHeight="24.0" prefWidth="231.0" />
+               </children>
+            </AnchorPane>
+            <JFXButton fx:id="btnSobre" layoutX="527.0" layoutY="1.0" maxWidth="158.0" onMousePressed="#handleButtonAction" prefHeight="51.0" prefWidth="108.0" style="-fx-background-color: #007bff;" text="Sobre" textFill="#0d0d0d">
+               <effect>
+                  <Blend />
+               </effect>
+               <font>
+                  <Font name="Arial Bold Italic" size="15.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="58.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Imagens/gostar.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets right="5.0" />
+               </padding>
+            </JFXButton>
+            <JFXButton fx:id="btnDemandas" layoutX="1.0" layoutY="1.0" maxWidth="173.0" onMousePressed="#handleButtonAction" prefHeight="42.0" prefWidth="173.0" style="-fx-background-color: #007bff;" text="Demandas" textFill="#0d0d0d">
+               <effect>
+                  <Blend />
+               </effect>
+               <font>
+                  <Font name="Arial Bold" size="18.0" />
+               </font>
+               <graphic>
+                  <ImageView accessibleRole="BUTTON" fitHeight="39.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Imagens/pesquisa.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <JFXButton fx:id="btnAnotacoes" layoutX="177.0" layoutY="1.0" maxWidth="173.0" onMousePressed="#handleButtonAction" prefHeight="42.0" prefWidth="173.0" style="-fx-background-color: #007bff;" text="Anotações" textFill="#0d0d0d">
+               <effect>
+                  <Blend />
+               </effect>
+               <font>
+                  <Font name="Arial Bold" size="18.0" />
+               </font>
+               <graphic>
+                  <ImageView accessibleRole="BUTTON" fitHeight="39.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Imagens/anotações.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <JFXButton fx:id="btnAgenda" layoutX="352.0" layoutY="1.0" maxWidth="173.0" onMousePressed="#handleButtonAction" prefHeight="42.0" prefWidth="173.0" style="-fx-background-color: #007bff;" text="Agenda" textFill="#0d0d0d">
+               <effect>
+                  <Blend />
+               </effect>
+               <font>
+                  <Font name="Arial Bold" size="18.0" />
+               </font>
+               <graphic>
+                  <ImageView accessibleRole="BUTTON" fitHeight="39.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Imagens/agenda.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <AnchorPane fx:id="apAnotacoes" layoutX="1.0" layoutY="52.0" onMousePressed="#handleButtonAction" prefHeight="446.0" prefWidth="635.0" style="-fx-background-color: white;">
+               <children>
+                  <JFXDatePicker fx:id="dtDataAnotacoes" layoutX="85.0" layoutY="267.0" />
+                  <JFXButton fx:id="btnLimparAnotacoes" layoutX="440.0" layoutY="319.0" onMousePressed="#limparAnotacoes" style="-fx-background-color: #007bff;" text="Limpar">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font></JFXButton>
+                  <JFXButton layoutX="498.0" layoutY="319.0" onAction="#salvarAnotacoes" prefHeight="25.0" prefWidth="57.0" style="-fx-background-color: #007bff;" text="Salvar">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font></JFXButton>
+                  <TextArea fx:id="txtAnotacoes" layoutX="86.0" layoutY="81.0" prefHeight="180.0" prefWidth="458.0" />
+                  <ComboBox fx:id="cbEvento" layoutX="85.0" layoutY="46.0" prefHeight="25.0" prefWidth="459.0" promptText="Evento..." />
+                  <ComboBox fx:id="cbResponsavel" layoutX="86.0" layoutY="307.0" prefWidth="150.0" promptText="Responsavel..." />
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="apSobre" layoutY="52.0" onMousePressed="#handleButtonAction" prefHeight="411.0" prefWidth="635.0" style="-fx-background-color: white;" visible="false">
+               <children>
+                  <Text layoutX="180.0" layoutY="230.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Scrum Master: Vinicius." wrappingWidth="141.71875" />
+                  <Text layoutX="181.0" layoutY="166.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Desenvolvido por: Núcleo de formação da TI." />
+                  <Text layoutX="181.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Devs: Wesley, Bruno, Lucas Gonçalves." />
+                  <Text layoutX="181.0" layoutY="200.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Design: Lucas Chedik." />
+                  <Text layoutX="181.0" layoutY="216.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PO: Jessica." />
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="apDemandas" layoutX="4.0" layoutY="53.0" onMousePressed="#handleButtonAction" prefHeight="450.0" prefWidth="627.0" visible="false">
+               <children>
+                  <VBox layoutX="11.0" layoutY="14.0" prefHeight="252.0" prefWidth="241.0">
+                     <children>
+                        <Label text="Demanda:">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font></Label>
+                        <TextField fx:id="txtDemanda" />
+                        <Label text="Responsavel:">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font></Label>
+                        <TextField fx:id="txtResponsavel" />
+                        <Label text="Local:">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font></Label>
+                        <TextField fx:id="txtLocal" />
+                        <Label text="Centro de Custo">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font></Label>
+                        <TextField fx:id="txtCentroCusto" />
+                        <Label text="Gerente">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font></Label>
+                        <TextField fx:id="txtGerente" />
+                     </children>
+                  </VBox>
+                  <Label layoutX="347.0" layoutY="25.0" text="Inicio">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font></Label>
+                  <JFXDatePicker fx:id="dtInicio" layoutX="377.0" layoutY="21.0" prefHeight="25.0" prefWidth="105.0" />
+                  <Label layoutX="477.0" layoutY="25.0" text="Termino">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font></Label>
+                  <JFXDatePicker fx:id="dtTermino" layoutX="521.0" layoutY="21.0" prefHeight="25.0" prefWidth="101.0" />
+                  <Label layoutX="345.0" layoutY="60.0" text="Horário:">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font></Label>
+                  <JFXTimePicker fx:id="hrInicio" layoutX="392.0" layoutY="56.0" prefHeight="25.0" prefWidth="77.0" />
+                  <Label layoutX="473.0" layoutY="60.0" text="Até">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font></Label>
+                  <JFXTimePicker fx:id="hrFinal" layoutX="496.0" layoutY="56.0" prefHeight="25.0" prefWidth="77.0" />
+                  <VBox layoutX="344.0" layoutY="93.0">
+                     <children>
+                        <Label text="Numero de vagas:">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font></Label>
+                        <TextField fx:id="txtNumVagas" prefHeight="25.0" prefWidth="81.0" />
+                        <Label text="Coordenador:">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font></Label>
+                        <TextField fx:id="txtCoordenador" />
+                     </children>
+                  </VBox>
+                  <TextArea fx:id="txtObservacao" layoutX="340.0" layoutY="235.0" prefHeight="108.0" prefWidth="188.0" promptText="Observação..." />
+                  <Button layoutX="456.0" layoutY="367.0" mnemonicParsing="false" onAction="#limparDemandas" style="-fx-background-color: #007bff;" text="Limpar">
+                     <font>
+                        <Font name="Arial Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="523.0" layoutY="366.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="56.0" style="-fx-background-color: #007bff;" text="Salvar">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <TextArea layoutX="11.0" layoutY="257.0" prefHeight="111.0" prefWidth="241.0" promptText="Participantes..." />
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="apInicio" layoutX="4.0" layoutY="52.0" prefHeight="450.0" prefWidth="630.0" visible="false" />
+         </children>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+      </AnchorPane>
+   </center>
+</BorderPane>
