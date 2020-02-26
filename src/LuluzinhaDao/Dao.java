@@ -11,10 +11,9 @@ import java.sql.SQLException;
  * @author F0127063
  */
 public class Dao {
-    final private String url = "172.19.18.130:3306/entrega_agenda";
-    final private String driver = "com.mysql.jdbc.Driver";
-    final private String usuario ="root";
-    final private String senha="";
+    final private String url = "jdbc:mysql://mysql.emiliocelso.com.br:3306/entrega2_porto";
+    final private String usuario ="entrega2_porto";
+    final private String senha="p@ssw0rd";
     private PreparedStatement stmt;
     protected ResultSet rs;
     

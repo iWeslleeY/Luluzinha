@@ -11,6 +11,7 @@ import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.format.TextStyle;
 import java.util.Locale;
@@ -26,6 +27,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
 
 /**
  * Classe Controladora do FXMLs
@@ -74,7 +76,7 @@ public class InicioPaginaController implements Initializable {
     @FXML
     private ComboBox<String> cbResponsavel;
     
-    private ObservableList<String> obResponsavel = FXCollections.observableArrayList("Ana","Luana");
+    private final ObservableList<String> obResponsavel = FXCollections.observableArrayList("Ana","Luana");
     
     @FXML
     private JFXTimePicker tmHoraAnotacoes;
@@ -87,12 +89,6 @@ public class InicioPaginaController implements Initializable {
     
     @FXML
     private TextArea txtAnotacoes;
-    
-    @FXML
-    private JFXButton btnLimparAnotacoes;
-    
-    @FXML
-    private JFXButton btnHome;
     
     @FXML
     private AnchorPane apInicio;
@@ -151,21 +147,25 @@ public class InicioPaginaController implements Initializable {
     @FXML
     public void handleButtonAction(MouseEvent event) {
         if(event.getTarget() == btnDemandas){
+            apInicio.setVisible(false);
             apDemandas.setVisible(true);
             apAnotacoes.setVisible(false);
             apAgenda.setVisible(false);
             apSobre.setVisible(false);
         } else if(event.getTarget()==btnAnotacoes){
+            apInicio.setVisible(false);
             apDemandas.setVisible(false);
             apAnotacoes.setVisible(true);
             apAgenda.setVisible(false);
             apSobre.setVisible(false);
         } else if(event.getTarget()== btnAgenda){
+            apInicio.setVisible(false);
             apDemandas.setVisible(false);
             apAnotacoes.setVisible(false);
             apAgenda.setVisible(true);
             apSobre.setVisible(false);
         } else if(event.getTarget()==btnSobre){
+            apInicio.setVisible(false);
             apDemandas.setVisible(false);
             apAnotacoes.setVisible(false);
             apAgenda.setVisible(false);
@@ -219,8 +219,6 @@ public class InicioPaginaController implements Initializable {
         clAno.setVisible(true);
         clMes.setVisible(true);
         
-        //DayOfWeek teste = ld.getDayOfWeek().SUNDAY;
-        
         clDiaSemana1.setText(ld.getDayOfWeek().getDisplayName(TextStyle.FULL, new Locale("pt","BR")));
         clDia1.setText(Integer.toString(ld.getDayOfMonth()));
         clAno1.setText(Integer.toString(ld.getYear()));
@@ -230,9 +228,13 @@ public class InicioPaginaController implements Initializable {
         clAno1.setVisible(true);
         clMes1.setVisible(true);
         
-//        if(clDiaSemana.setText(ld.getDayOfWeek().SATURDAY) || clDiaSemana.setText(ld.getDayOfWeek().SUNDAY)){
-//            clDia.setTextFill(Color.RED);
-//        }
+        if(ld.getDayOfWeek() == ld.getDayOfWeek().SUNDAY || ld.getDayOfWeek() == ld.getDayOfWeek().SATURDAY){
+            clDia.setTextFill(Color.RED);
+            clDia1.setTextFill(Color.RED);
+        } else{
+            clDia.setTextFill(Color.BLACK);
+            clDia1.setTextFill(Color.BLACK);
+        }
     }
     
     @Override
@@ -242,14 +244,16 @@ public class InicioPaginaController implements Initializable {
     
     @FXML
     void salvarAnotacoes(ActionEvent event) throws SQLException, ClassNotFoundException {
+        
+        try{
         Dao dao = new Dao();
         Connection conexao = dao.abrirConexao();
-        String sql = "INSERT INTO teste (teste_nome) VALUES ('"+txtDemanda.getText()+"')";
-
-       // stmt=(PreparedStatement) conexao.prepareStatement(sql);
-       // stmt.setString(1, txtDemanda);
-        
-      sql ="SELECT * FROM teste";
+        PreparedStatement stmt;
+        stmt = (PreparedStatement) conexao.prepareStatement("INSERT INTO TESTE (teste_nome) VALUES (?)");
+        stmt.setString(0, txtDemanda.getText());
+        }  catch(Exception e){
+            throw e;
+        } 
     }
     
 }
