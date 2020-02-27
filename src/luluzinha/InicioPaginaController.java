@@ -5,15 +5,15 @@ import LuluzinhaDao.Dao;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTimePicker;
-import com.mysql.jdbc.PreparedStatement;
-import com.mysql.jdbc.Statement;
-import java.net.URL;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.time.DayOfWeek;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.time.format.TextStyle;
+import java.util.Date;
 import java.util.Locale;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
@@ -143,6 +143,12 @@ public class InicioPaginaController implements Initializable {
     @FXML
     private AnchorPane apSobre;
     
+    @FXML
+    private Label lblConcluido;
+    
+    Connection con;
+    PreparedStatement stmt;
+    ResultSet rs;
     
     @FXML
     public void handleButtonAction(MouseEvent event) {
@@ -205,6 +211,7 @@ public class InicioPaginaController implements Initializable {
         hrFinal.setValue(null);
         txtObservacao.clear();
         txtResponsavel.clear();
+        lblConcluido.setVisible(false);
     }
     
     @FXML
@@ -242,18 +249,35 @@ public class InicioPaginaController implements Initializable {
         cbResponsavel.setItems(obResponsavel);
     }    
     
-    @FXML
-    void salvarAnotacoes(ActionEvent event) throws SQLException, ClassNotFoundException {
-        
-        try{
-        Dao dao = new Dao();
-        Connection conexao = dao.abrirConexao();
-        PreparedStatement stmt;
-        stmt = (PreparedStatement) conexao.prepareStatement("INSERT INTO TESTE (teste_nome) VALUES (?)");
-        stmt.setString(0, txtDemanda.getText());
-        }  catch(Exception e){
-            throw e;
-        } 
+    public InicioPaginaController() {
+        con = Dao.conDB();
     }
     
+    @FXML
+    void salvarAnotacoes(ActionEvent event) throws SQLException, ClassNotFoundException {
+        try{
+        Dao dao = new Dao();
+        Connection cn = Dao.conDB();
+        
+        String nome = txtDemanda.getText();
+        java.sql.Date dataInicio = java.sql.Date.valueOf(dtInicio.getValue());
+        String vagas = txtNumVagas.getText();
+        String justificativa =txtObservacao.getText();
+        
+        stmt =cn.prepareStatement("INSERT INTO treinamento (nome,dt_solicitacao,vagas, justificativa) VALUES(?,?,?,?)");
+        stmt.setString(1, nome);
+        stmt.setDate(2, dataInicio);
+        stmt.setString(3, vagas);
+        stmt.setString(4, justificativa);
+        
+        
+        stmt.executeUpdate();
+        
+        lblConcluido.setVisible(true);
+        
+        } catch(SQLException e){
+          throw e;
+            
+            }
+        }
 }
