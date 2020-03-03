@@ -8,12 +8,15 @@ import com.jfoenix.controls.JFXTimePicker;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.net.URL;
+import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.Month;
 import java.time.format.DateTimeFormatter;
 import java.time.format.TextStyle;
-import java.util.Date;
 import java.util.Locale;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
@@ -21,6 +24,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
@@ -62,7 +66,7 @@ public class InicioPaginaController implements Initializable {
     private TextField txtDemanda;
 
     @FXML
-    private TextField txtResponsavel;
+    private TextField txtSolicitante;
 
     @FXML
     private TextField txtLocal;
@@ -210,7 +214,7 @@ public class InicioPaginaController implements Initializable {
         hrInicio.setValue(null);
         hrFinal.setValue(null);
         txtObservacao.clear();
-        txtResponsavel.clear();
+        txtSolicitante.clear();
         lblConcluido.setVisible(false);
     }
     
@@ -259,25 +263,57 @@ public class InicioPaginaController implements Initializable {
         Dao dao = new Dao();
         Connection cn = Dao.conDB();
         
+        // SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+
         String nome = txtDemanda.getText();
-        java.sql.Date dataInicio = java.sql.Date.valueOf(dtInicio.getValue());
+        Date dataInicio = Date.valueOf(dtInicio.getValue());
+        dataInicio.getTime();
+        
+           // System.out.println(dataInicio);
         String vagas = txtNumVagas.getText();
         String justificativa =txtObservacao.getText();
+        String local = txtLocal.getText();
+        String gerente = txtGerente.getText();
+        String coordenador = txtCoordenador.getText();
+        String solicitante = txtSolicitante.getText();
+        java.sql.Date dataFim = java.sql.Date.valueOf(dtTermino.getValue());
+        dataFim.getTime();
+           // System.out.println(dataFim);
         
-        stmt =cn.prepareStatement("INSERT INTO treinamento (nome,dt_solicitacao,vagas, justificativa) VALUES(?,?,?,?)");
+        stmt =cn.prepareStatement("INSERT INTO treinamento (nome,vagas, "
+                + "justificativa, responsavel, endereco, coordenador, dt_inicio, dt_fim, gerente) "
+                + "VALUES(?,?,?,?,?,?,?,?,?)");
         stmt.setString(1, nome);
-        stmt.setDate(2, dataInicio);
-        stmt.setString(3, vagas);
-        stmt.setString(4, justificativa);
+        stmt.setString(2, vagas);
+        stmt.setString(3, justificativa);
+        stmt.setString(4, solicitante);
+        stmt.setString(5, local);
+        stmt.setDate(6, dataInicio);
+        stmt.setDate(7, dataFim);
+        stmt.setString(8, coordenador);
+        stmt.setString(9, gerente);
         
+//        if(dtInicio == null || dtTermino == null){
+//            dtInicio.setValue(LocalDate.of(2000, Month.JANUARY, 1));
+//            dtTermino.setValue(LocalDate.of(2000, Month.JANUARY, 1));
+//        } 
         
+        if(justificativa.equals("") || nome.equals("") || local.equals("") || solicitante.equals("")){
+            Alert alerta = new Alert(Alert.AlertType.ERROR);
+            alerta.setTitle("CAMPO NULO");
+            alerta.setHeaderText("Campo não pode ser Nulo!");
+            alerta.setContentText("Um ou mais campos obrigatório não foram preenchidos!");
+            alerta.show();
+            txtDemanda.requestFocus();
+        }
         stmt.executeUpdate();
-        
+
         lblConcluido.setVisible(true);
+        
         
         } catch(SQLException e){
           throw e;
-            
-            }
         }
+        
+    }
 }
