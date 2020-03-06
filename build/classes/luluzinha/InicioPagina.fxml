@@ -390,13 +390,13 @@
                               <Font name="System Bold" size="12.0" />
                            </font>
                         </Label>
-                        <ComboBox prefWidth="150.0" promptText="Baixa" />
+                        <ComboBox fx:id="cbPrioridade" prefWidth="150.0" promptText="Baixa" />
                         <Label text="Status:">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>
                         </Label>
-                        <ComboBox prefWidth="150.0" promptText="Em andamento" />
+                        <ComboBox fx:id="cbStatus" prefWidth="150.0" promptText="Em andamento" />
                      </children>
                   </VBox>
                   <TextArea fx:id="txtObservacao" layoutX="342.0" layoutY="259.0" prefHeight="110.0" prefWidth="233.0" promptText="Justificativa/Observações..." />

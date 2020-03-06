@@ -36,7 +36,13 @@ import javafx.scene.paint.Color;
  * @author Wesley Araujo
  */
 public class InicioPaginaController implements Initializable {
-   
+    
+    @FXML
+    private ComboBox<String> cbPrioridade;
+
+    @FXML
+    private ComboBox<String> cbStatus;
+    
     @FXML
     private DatePicker dtInicio;
 
@@ -77,6 +83,8 @@ public class InicioPaginaController implements Initializable {
     private ComboBox<String> cbResponsavel;
     
     private final ObservableList<String> obResponsavel = FXCollections.observableArrayList("Ana","Luana");
+    private final ObservableList<String> obPrioridade = FXCollections.observableArrayList("Baixa", "Media","Alta");
+    private final ObservableList<String> obStatus = FXCollections.observableArrayList("Cancelado", "Em andamento","Concluído");
     
     @FXML
     private JFXTimePicker tmHoraAnotacoes;
@@ -247,6 +255,8 @@ public class InicioPaginaController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         cbResponsavel.setItems(obResponsavel);
+        cbPrioridade.setItems(obPrioridade);
+        cbStatus.setItems(obStatus);
         Constraints.setTextFieldDouble(txtCentroCusto);
         Constraints.setTextFieldDouble(txtNumVagas);
         Constraints.setTextFieldMaxLength(txtNumVagas, 4);
