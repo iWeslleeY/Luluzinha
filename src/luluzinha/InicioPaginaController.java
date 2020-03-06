@@ -8,14 +8,9 @@ import com.jfoenix.controls.JFXTimePicker;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.net.URL;
-import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.time.LocalTime;
-import java.time.Month;
-import java.time.format.DateTimeFormatter;
 import java.time.format.TextStyle;
 import java.util.Locale;
 import java.util.ResourceBundle;
@@ -26,6 +21,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -42,10 +38,10 @@ import javafx.scene.paint.Color;
 public class InicioPaginaController implements Initializable {
    
     @FXML
-    private JFXDatePicker dtInicio;
+    private DatePicker dtInicio;
 
     @FXML
-    private JFXDatePicker dtTermino;
+    private DatePicker dtFim;
 
     @FXML
     private JFXTimePicker hrInicio;
@@ -210,7 +206,7 @@ public class InicioPaginaController implements Initializable {
         txtNumVagas.clear();
         txtCoordenador.clear();
         dtInicio.setValue(null);
-        dtTermino.setValue(null);
+        dtFim.setValue(null);
         hrInicio.setValue(null);
         hrFinal.setValue(null);
         txtObservacao.clear();
@@ -251,6 +247,11 @@ public class InicioPaginaController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         cbResponsavel.setItems(obResponsavel);
+        Constraints.setTextFieldDouble(txtCentroCusto);
+        Constraints.setTextFieldDouble(txtNumVagas);
+        Constraints.setTextFieldMaxLength(txtNumVagas, 4);
+        dtInicio.setValue(LocalDate.now());
+        dtFim.setValue(LocalDate.now());
     }    
     
     public InicioPaginaController() {
@@ -258,45 +259,34 @@ public class InicioPaginaController implements Initializable {
     }
     
     @FXML
-    void salvarAnotacoes(ActionEvent event) throws SQLException, ClassNotFoundException {
+    void salvarAnotacoes(ActionEvent event) throws SQLException, ClassNotFoundException, NullPointerException {
         try{
         Dao dao = new Dao();
         Connection cn = Dao.conDB();
         
-        // SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
 
         String nome = txtDemanda.getText();
-        Date dataInicio = Date.valueOf(dtInicio.getValue());
-        dataInicio.getTime();
-        
-           // System.out.println(dataInicio);
+        String dataFim = String.valueOf(dtFim.getValue().toString());
         String vagas = txtNumVagas.getText();
         String justificativa =txtObservacao.getText();
         String local = txtLocal.getText();
         String gerente = txtGerente.getText();
         String coordenador = txtCoordenador.getText();
         String solicitante = txtSolicitante.getText();
-        java.sql.Date dataFim = java.sql.Date.valueOf(dtTermino.getValue());
-        dataFim.getTime();
-           // System.out.println(dataFim);
+        String dataInicio = String.valueOf(dtInicio.getValue().toString());
         
         stmt =cn.prepareStatement("INSERT INTO treinamento (nome,vagas, "
-                + "justificativa, responsavel, endereco, coordenador, dt_inicio, dt_fim, gerente) "
+                + "justificativa, responsavel, endereco,dt_inicio,dt_fim,coordenador, gerente) "
                 + "VALUES(?,?,?,?,?,?,?,?,?)");
         stmt.setString(1, nome);
         stmt.setString(2, vagas);
         stmt.setString(3, justificativa);
         stmt.setString(4, solicitante);
         stmt.setString(5, local);
-        stmt.setDate(6, dataInicio);
-        stmt.setDate(7, dataFim);
+        stmt.setString(6, dataInicio);
+        stmt.setString(7, dataFim);
         stmt.setString(8, coordenador);
         stmt.setString(9, gerente);
-        
-//        if(dtInicio == null || dtTermino == null){
-//            dtInicio.setValue(LocalDate.of(2000, Month.JANUARY, 1));
-//            dtTermino.setValue(LocalDate.of(2000, Month.JANUARY, 1));
-//        } 
         
         if(justificativa.equals("") || nome.equals("") || local.equals("") || solicitante.equals("")){
             Alert alerta = new Alert(Alert.AlertType.ERROR);
@@ -305,15 +295,13 @@ public class InicioPaginaController implements Initializable {
             alerta.setContentText("Um ou mais campos obrigatório não foram preenchidos!");
             alerta.show();
             txtDemanda.requestFocus();
-        }
-        stmt.executeUpdate();
-
-        lblConcluido.setVisible(true);
-        
+        } else{
+           stmt.executeUpdate();
+           lblConcluido.setVisible(true);
+        }        
         
         } catch(SQLException e){
           throw e;
         }
-        
     }
 }
