@@ -1,0 +1,45 @@
+create table treinamento(id int not null AUTO_INCREMENT,
+                         nome varchar(100)not null,
+                         dt_solicitacao date,
+                         vagas int,
+                         justificativa text,
+                         prioridade varchar(30),
+                         status varchar(30),
+                         responsavel varchar(30),
+                         saldo double,
+                         observacao text,
+                         enderenco text, 
+                         horario timestamp, 
+                         dt_inicio date,
+                         dt_fim date,
+                         PRIMARY KEY(id));
+                         
+                         
+                         create table participanete(
+                             id int not null AUTO_INCREMENT,
+                             matricula varchar(10),
+                             nome varchar(100),
+                             coordenador varchar(100),
+                             gerente varchar(100), 
+                             centro_custo int,
+                             PRIMARY KEY(id));
+                             
+                             
+                             create table anotacao(
+                             	id int not null AUTO_INCREMENT,
+                                 id_treinamento int not null AUTO_INCREMENT,
+                                dt_anotacao datetime,
+                                 anotacao text, 	                            
+                               responsavel varchar(30),
+                                 PRIMARY KEY(id),
+                                 FOREIGN KEY (id_treinamento) REFERENCES treinamento(id)
+                             );
+                             
+                             
+                            create table treinamento_participante(
+                                 id_treinamento int not null AUTO_INCREMENT, 
+                                 id_participante int not null AUTO_INCREMENT,
+                             	PRIMARY KEY (id_treinamenteo, id_participante),
+                                FOREIGN KEY(id_treinamento) REFERENCES treinamento(id),
+                                FOREIGN KEY(id_participante) REFERENCES participante(id)
+                             );

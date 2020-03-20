@@ -1,0 +1,5 @@
+servidor: nt12765
+banco de dados:nuc_cad_demandas
+porta:3306
+usuário:nuc_cad_demandas
+senha:P@rt@S3gur@

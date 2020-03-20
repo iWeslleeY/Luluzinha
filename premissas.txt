@@ -1,0 +1,7 @@
+prioridades:
+
+status:
+
+
+
+deixar justificativa nas observacoes, verificar centro de custo como numero ou uma tabela auxiliar,

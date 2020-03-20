@@ -1,0 +1,6 @@
+su - postgres
+\h comandos
+\q sai do ambiente 
+\l listar bancos de dados 
+
+ demandasDB
