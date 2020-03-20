@@ -16,9 +16,8 @@ public class InicioPagina extends Application {
         
         Image iconePorto = new Image("luluzinha/Imagens/download.png");
         
-        
         stage.getIcons().add(iconePorto);
-        stage.setTitle("Luluzinha Project");
+        stage.setTitle("Demandas de Curso");
         stage.setScene(scene);
         stage.setResizable(false);
         scene.setFill(javafx.scene.paint.Color.TRANSPARENT);

@@ -3,9 +3,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/souza.DESKTOP-O69U1OI/OneDrive/Documentos/NetBeansProjects/Luluzinha/src/luluzinha/InicioPagina.java</file>
-            <file>file:/C:/Users/souza.DESKTOP-O69U1OI/OneDrive/Documentos/NetBeansProjects/Luluzinha/src/luluzinha/InicioPaginaController.java</file>
-            <file>file:/C:/Users/souza.DESKTOP-O69U1OI/OneDrive/Documentos/NetBeansProjects/Luluzinha/src/luluzinha/InicioPagina.fxml</file>
+<<<<<<< HEAD
+            <file>file:/C:/Users/F0127063/Documents/NetBeansProjects/Projeto-Luluzinha-master/src/luluzinha/InicioPaginaController.java</file>
+            <file>file:/C:/Users/F0127063/Documents/NetBeansProjects/Projeto-Luluzinha-master/src/LuluzinhaDao/NewClass.java</file>
+            <file>file:/C:/Users/F0127063/Documents/NetBeansProjects/Projeto-Luluzinha-master/src/luluzinha/ListaAnotacao.java</file>
+            <file>file:/C:/Users/F0127063/Documents/NetBeansProjects/Projeto-Luluzinha-master/src/luluzinha/InicioPagina.java</file>
+            <file>file:/C:/Users/F0127063/Documents/NetBeansProjects/Projeto-Luluzinha-master/src/LuluzinhaDao/Dao.java</file>
+=======
+            <file>file:/C:/Users/F0127063/Documents/NetBeansProjects/Projeto-Luluzinha/src/luluzinha/InicioPaginaController.java</file>
+            <file>file:/C:/Users/F0127063/Documents/NetBeansProjects/Projeto-Luluzinha/src/luluzinha/InicioPagina.java</file>
+            <file>file:/C:/Users/F0127063/Documents/NetBeansProjects/Projeto-Luluzinha/src/luluzinha/InicioPagina.fxml</file>
+>>>>>>> 976c3cd6e3d2e43fd353371d73c048b7a2cb3b7d
         </group>
     </open-files>
 </project-private>
